@@ -134,7 +134,7 @@ parse_impl (ConnObject *conn)
 
 static void
 action (ConnObject *conn,
-        gchar *uri_str,
+        const gchar *uri_str,
         xmlDoc *doc)
 {
     gchar *head;
@@ -178,7 +178,7 @@ static void
 request_security_info (PsObject *ps)
 {
     ConnObject *conn;
-    gchar *guid;
+    const gchar *guid;
     gchar *user;
     gchar *pwd;
     gchar *ticket;
@@ -324,8 +324,8 @@ ps_object_finalize (GObject *obj)
     G_OBJECT_CLASS (parent_class)->finalize (obj);
 }
 
-void
-ps_object_class_init (gpointer g_class, gpointer class_data)
+static void
+class_init (gpointer g_class, gpointer class_data)
 {
     ConnObjectClass *conn_class = CONN_OBJECT_CLASS (g_class);
     GObjectClass *gobject_class = G_OBJECT_CLASS (g_class);
@@ -339,8 +339,8 @@ ps_object_class_init (gpointer g_class, gpointer class_data)
     parent_class = g_type_class_peek_parent (g_class);
 }
 
-void
-ps_object_instance_init (GTypeInstance *instance, gpointer g_class)
+static void
+instance_init (GTypeInstance *instance, gpointer g_class)
 {
     ConnObject *conn = CONN_OBJECT (instance);
     conn->end = CONN_END_OBJECT (ssl_end_object_new (conn));
@@ -358,12 +358,13 @@ ps_object_get_type (void)
             sizeof (PsObjectClass),
             NULL, /* base_init */
             NULL, /* base_finalize */
-            ps_object_class_init, /* class_init */
+            class_init, /* class_init */
             NULL, /* class_finalize */
             NULL, /* class_data */
             sizeof (PsObject),
             0, /* n_preallocs */
-            ps_object_instance_init /* instance_init */
+            instance_init, /* instance_init */
+            NULL /* value_table */
         };
 
         type = g_type_register_static

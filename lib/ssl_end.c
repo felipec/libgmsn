@@ -22,9 +22,6 @@
 GType ssl_end_object_get_type (void);
 static GObjectClass *parent_class = NULL;
 
-void ssl_end_object_class_init (gpointer g_class, gpointer class_data);
-void ssl_end_object_instance_init (GTypeInstance *instance, gpointer g_class);
-
 static void
 connect_impl (ConnEndObject *conn_end)
 {
@@ -95,8 +92,8 @@ ssl_end_object_finalize (GObject *obj)
     G_OBJECT_CLASS (parent_class)->finalize (obj);
 }
 
-void
-ssl_end_object_class_init (gpointer g_class, gpointer class_data)
+static void
+class_init (gpointer g_class, gpointer class_data)
 {
     ConnEndObjectClass *conn_end_class = CONN_END_OBJECT_CLASS (g_class);
     GObjectClass *gobject_class = G_OBJECT_CLASS (g_class);
@@ -112,8 +109,8 @@ ssl_end_object_class_init (gpointer g_class, gpointer class_data)
     parent_class = g_type_class_peek_parent (g_class);
 }
 
-void
-ssl_end_object_instance_init (GTypeInstance *instance, gpointer g_class)
+static void
+instance_init (GTypeInstance *instance, gpointer g_class)
 {
     SslEndObject *ssl_end = SSL_END_OBJECT (instance);
 
@@ -132,12 +129,13 @@ ssl_end_object_get_type (void)
             sizeof (SslEndObjectClass),
             NULL, /* base_init */
             NULL, /* base_finalize */
-            ssl_end_object_class_init, /* class_init */
+            class_init, /* class_init */
             NULL, /* class_finalize */
             NULL, /* class_data */
             sizeof (SslEndObject),
             0, /* n_preallocs */
-            ssl_end_object_instance_init /* instance_init */
+            instance_init, /* instance_init */
+            NULL /* value_table */
         };
 
         type = g_type_register_static

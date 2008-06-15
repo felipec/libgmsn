@@ -78,7 +78,8 @@ conn_object_to_string (ConnObject *conn)
     return g_strdup_printf ("%s (%s:%d)", conn->name, conn->host, conn->port);
 }
 
-void
+/** @todo shall we export this? */
+static inline void
 conn_object_error (ConnObject *conn)
 {
     CONN_OBJECT_GET_CLASS (conn)->error (conn);
@@ -118,7 +119,7 @@ conn_object_poll (ConnObject *conn)
 
 void
 conn_object_connect (ConnObject *conn,
-                     gchar *hostname,
+                     const gchar *hostname,
                      gint port)
 {
 #ifndef FILE_TEST
@@ -321,8 +322,8 @@ conn_object_finalize (GObject *obj)
     G_OBJECT_CLASS (parent_class)->finalize (obj);
 }
 
-void
-conn_object_class_init (gpointer g_class, gpointer class_data)
+static void
+class_init (gpointer g_class, gpointer class_data)
 {
     ConnObjectClass *conn_class = CONN_OBJECT_CLASS (g_class);
     GObjectClass *gobject_class = G_OBJECT_CLASS (g_class);
@@ -337,8 +338,8 @@ conn_object_class_init (gpointer g_class, gpointer class_data)
     parent_class = g_type_class_peek_parent (g_class);
 }
 
-void
-conn_object_instance_init (GTypeInstance *instance, gpointer g_class)
+static void
+instance_init (GTypeInstance *instance, gpointer g_class)
 {
     ConnObject *conn = CONN_OBJECT (instance);
 
@@ -360,12 +361,13 @@ conn_object_get_type (void)
             sizeof (ConnObjectClass),
             NULL, /* base_init */
             NULL, /* base_finalize */
-            conn_object_class_init, /* class_init */
+            class_init, /* class_init */
             NULL, /* class_finalize */
             NULL, /* class_data */
             sizeof (ConnObject),
             0, /* n_preallocs */
-            conn_object_instance_init /* instance_init */
+            instance_init, /* instance_init */
+            NULL /* value_table */
         };
 
         type = g_type_register_static

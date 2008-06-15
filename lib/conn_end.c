@@ -114,8 +114,8 @@ conn_end_object_finalize (GObject *obj)
     G_OBJECT_CLASS (parent_class)->finalize (obj);
 }
 
-void
-conn_end_object_class_init (gpointer g_class, gpointer class_data)
+static void
+class_init (gpointer g_class, gpointer class_data)
 {
     ConnEndObjectClass *conn_end_class = CONN_END_OBJECT_CLASS (g_class);
     GObjectClass *gobject_class = G_OBJECT_CLASS (g_class);
@@ -131,8 +131,8 @@ conn_end_object_class_init (gpointer g_class, gpointer class_data)
     parent_class = g_type_class_peek_parent (g_class);
 }
 
-void
-conn_end_object_instance_init (GTypeInstance *instance, gpointer g_class)
+static void
+instance_init (GTypeInstance *instance, gpointer g_class)
 {
     ConnEndObject *conn_end = CONN_END_OBJECT (instance);
 
@@ -151,12 +151,13 @@ conn_end_object_get_type (void)
             sizeof (ConnEndObjectClass),
             NULL, /* base_init */
             NULL, /* base_finalize */
-            conn_end_object_class_init, /* class_init */
+            class_init, /* class_init */
             NULL, /* class_finalize */
             NULL, /* class_data */
             sizeof (ConnEndObject),
             0, /* n_preallocs */
-            conn_end_object_instance_init /* instance_init */
+            instance_init, /* instance_init */
+            NULL /* value_table */
         };
 
         type = g_type_register_static

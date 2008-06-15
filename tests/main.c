@@ -26,13 +26,13 @@
 
 GMainLoop* loop;
 
-void
+static void
 hup_cb (MsnCore *core)
 {
     g_main_loop_quit (loop);
 }
 
-gboolean
+static gboolean
 idle (gpointer data)
 {
     MsnCore *msn;

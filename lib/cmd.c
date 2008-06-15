@@ -30,7 +30,7 @@ msn_cmd_new (void)
 }
 
 MsnCmd *
-msn_cmd_new_full (gchar *id, gint trid, gchar *args)
+msn_cmd_new_full (const gchar *id, gint trid, const gchar *args)
 {
     MsnCmd *cmd;
     cmd = msn_cmd_new ();
@@ -57,7 +57,9 @@ msn_cmd_print (MsnCmd *cmd)
     g_print ("%s %d %s\n", cmd->id, cmd->trid, cmd->args);
 }
 
-gboolean
+/* not used */
+#if 0
+static gboolean
 is_num (gchar *str)
 {
     if (str[0] >= '0' && str[0] <= '9')
@@ -65,6 +67,7 @@ is_num (gchar *str)
 
     return FALSE;
 }
+#endif
 
 MsnCmd *
 msn_cmd_from_string (gchar *string)

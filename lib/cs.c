@@ -29,9 +29,6 @@
 GType cs_object_get_type (void);
 static GObjectClass *parent_class = NULL;
 
-void cs_object_class_init (gpointer g_class, gpointer class_data);
-void cs_object_instance_init (GTypeInstance *instance, gpointer g_class);
-
 CsObject *
 cs_object_new (MsnCore *core)
 {
@@ -150,8 +147,8 @@ gen_header (xmlNode *root_node, xmlNs *ns)
 
 static void
 soap_action (ConnObject *conn,
-             gchar *uri_str,
-             gchar *action,
+             const gchar *uri_str,
+             const gchar *action,
              xmlDoc *doc)
 {
     gchar *head;
@@ -361,8 +358,8 @@ cs_object_finalize (GObject *obj)
     G_OBJECT_CLASS (parent_class)->finalize (obj);
 }
 
-void
-cs_object_class_init (gpointer g_class, gpointer class_data)
+static void
+class_init (gpointer g_class, gpointer class_data)
 {
     ConnObjectClass *conn_class = CONN_OBJECT_CLASS (g_class);
     GObjectClass *gobject_class = G_OBJECT_CLASS (g_class);
@@ -377,8 +374,8 @@ cs_object_class_init (gpointer g_class, gpointer class_data)
     parent_class = g_type_class_peek_parent (g_class);
 }
 
-void
-cs_object_instance_init (GTypeInstance *instance, gpointer g_class)
+static void
+instance_init (GTypeInstance *instance, gpointer g_class)
 {
 }
 
@@ -394,12 +391,13 @@ cs_object_get_type (void)
             sizeof (CsObjectClass),
             NULL, /* base_init */
             NULL, /* base_finalize */
-            cs_object_class_init, /* class_init */
+            class_init, /* class_init */
             NULL, /* class_finalize */
             NULL, /* class_data */
             sizeof (CsObject),
             0, /* n_preallocs */
-            cs_object_instance_init /* instance_init */
+            instance_init, /* instance_init */
+            NULL /* value_table */
         };
 
         type = g_type_register_static

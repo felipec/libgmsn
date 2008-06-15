@@ -90,7 +90,7 @@ struct ConnObjectClass
 GType conn_object_get_type (void);
 ConnObject *conn_object_new (MsnCore *core, gchar *name, ConnObjectType type);
 void conn_object_free (ConnObject *conn);
-void conn_object_connect (ConnObject *conn, gchar *hostname, gint port);
+void conn_object_connect (ConnObject *conn, const gchar *hostname, gint port);
 void conn_object_send_cmd (ConnObject *conn, MsnCmd *cmd);
 void conn_object_close (ConnObject *conn);
 void conn_object_handle (ConnObject *conn, MsnCmd *cmd);

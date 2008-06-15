@@ -70,7 +70,7 @@ msn_print (const gchar *format, ...)
 
                             tmp = conn_object_to_string (conn);
 
-                            g_print (tmp);
+                            g_print ("%s", tmp);
 
                             g_free (tmp);
                             break;
@@ -88,7 +88,7 @@ msn_print (const gchar *format, ...)
                             tmp = g_strndup (str, size);
                             escaped = g_strescape (tmp, NULL);
 
-                            g_print (escaped);
+                            g_print ("%s", escaped);
 
                             g_free (escaped);
                             g_free (tmp);

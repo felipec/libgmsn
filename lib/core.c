@@ -167,7 +167,7 @@ msn_core_got_ticket (MsnCore *core, gchar *ticket)
     g_free (buf);
 }
 
-gpointer
+static gpointer
 login_thread (gpointer data)
 {
     MsnCore *core;
@@ -185,7 +185,7 @@ login_thread (gpointer data)
     return FALSE;
 }
 
-gpointer
+static gpointer
 cs_thread (gpointer data)
 {
     MsnCore *core;

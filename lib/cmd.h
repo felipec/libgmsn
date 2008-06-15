@@ -38,7 +38,7 @@ struct MsnCmd
 };
 
 MsnCmd *msn_cmd_new (void);
-MsnCmd *msn_cmd_new_full (gchar *id, gint trid, gchar *args);
+MsnCmd *msn_cmd_new_full (const gchar *id, gint trid, const gchar *args);
 void msn_cmd_print (MsnCmd *cmd);
 MsnCmd *msn_cmd_from_string (gchar *string);
 void msn_cmd_free (MsnCmd *cmd);

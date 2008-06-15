@@ -50,7 +50,8 @@ ns_object_free (NsObject *ns)
     g_object_unref (G_OBJECT (ns));
 }
 
-void
+/** @todo should this be exported? */
+static void
 ns_object_handle (NsObject *ns, MsnCmd *cmd)
 {
     MsnCmdHandler handler;
@@ -330,8 +331,8 @@ ns_object_finalize (GObject *obj)
     G_OBJECT_CLASS (parent_class)->finalize (obj);
 }
 
-void
-ns_object_class_init (gpointer g_class, gpointer class_data)
+static void
+class_init (gpointer g_class, gpointer class_data)
 {
     ConnObjectClass *conn_class = CONN_OBJECT_CLASS (g_class);
     GObjectClass *gobject_class = G_OBJECT_CLASS (g_class);
@@ -345,8 +346,8 @@ ns_object_class_init (gpointer g_class, gpointer class_data)
     parent_class = g_type_class_peek_parent (g_class);
 }
 
-void
-ns_object_instance_init (GTypeInstance *instance, gpointer g_class)
+static void
+instance_init (GTypeInstance *instance, gpointer g_class)
 {
     NsObject *ns = NS_OBJECT (instance);
     ConnObject *conn = CONN_OBJECT (instance);
@@ -377,12 +378,13 @@ ns_object_get_type (void)
             sizeof (NsObjectClass),
             NULL, /* base_init */
             NULL, /* base_finalize */
-            ns_object_class_init, /* class_init */
+            class_init, /* class_init */
             NULL, /* class_finalize */
             NULL, /* class_data */
             sizeof (NsObject),
             0, /* n_preallocs */
-            ns_object_instance_init /* instance_init */
+            instance_init, /* instance_init */
+            NULL /* value_table */
         };
 
         type = g_type_register_static
