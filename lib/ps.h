@@ -44,7 +44,7 @@ struct PsObjectClass
 #define PS_IS_OBJECT_CLASS(c) (G_TYPE_CHECK_CLASS_TYPE ((c), PS_OBJECT_TYPE))
 #define PS_OBJECT_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), PS_OBJECT_TYPE, PsObjectClass))
 
-GType ps_object_get_type ();
+GType ps_object_get_type (void);
 PsObject *ps_object_new (MsnCore *core);
 void ps_object_free (PsObject *ns);
 

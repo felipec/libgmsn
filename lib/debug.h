@@ -31,6 +31,6 @@ enum MsnType
     MSN_TYPE_STRING
 };
 
-void msn_print (const char *format, ...);
+void msn_print (const gchar *format, ...);
 
 #endif /* MSN_DEBUG_H */

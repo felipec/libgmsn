@@ -31,7 +31,7 @@ struct GSem
     gint count;
 };
 
-GSem* g_sem_new ();
+GSem* g_sem_new (void);
 void g_sem_free (GSem *sem);
 void g_sem_up (GSem *sem);
 void g_sem_down (GSem* sem);

@@ -23,7 +23,7 @@
 #include "conn.h"
 
 void
-msn_print (const char *format, ...)
+msn_print (const gchar *format, ...)
 {
     va_list list;
     const gchar *cur;

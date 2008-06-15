@@ -22,7 +22,7 @@
 #include <string.h>
 
 MsnCmd *
-msn_cmd_new ()
+msn_cmd_new (void)
 {
     MsnCmd *cmd;
     cmd = g_new0 (MsnCmd, 1);

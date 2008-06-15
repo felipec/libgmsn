@@ -35,12 +35,12 @@ struct MsnSsl
     SSL *ssl;
 };
 
-gboolean msn_ssl_init ();
-void msn_ssl_deinit ();
-MsnSsl *msn_ssl_new ();
-void msn_ssl_connect (MsnSsl *ssl, int fd);
+gboolean msn_ssl_init (void);
+void msn_ssl_deinit (void);
+MsnSsl *msn_ssl_new (void);
+void msn_ssl_connect (MsnSsl *ssl, gint fd);
 void msn_ssl_free (MsnSsl *ssl);
-size_t msn_ssl_read (MsnSsl *ssl, void *data, size_t len);
-size_t msn_ssl_write (MsnSsl *ssl, const void *data, size_t len);
+gsize msn_ssl_read (MsnSsl *ssl, gpointer data, gsize len);
+gsize msn_ssl_write (MsnSsl *ssl, const gpointer data, gsize len);
 
 #endif /* MSN_SSL_H */

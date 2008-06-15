@@ -45,6 +45,6 @@ struct CsObjectClass
 CsObject *cs_object_new (MsnCore *core);
 void cs_object_free (CsObject *ns);
 
-void cs_object_deinit ();
+void cs_object_deinit (void);
 
 #endif /* MSN_CS_H */

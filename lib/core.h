@@ -43,7 +43,7 @@ struct MsnCore
     MsnHupCb hup_cb;
 };
 
-MsnCore *msn_core_new ();
+MsnCore *msn_core_new (void);
 void msn_core_free (MsnCore *core);
 void msn_core_init (MsnCore *core);
 void msn_core_deinit (MsnCore *core);

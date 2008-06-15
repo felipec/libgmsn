@@ -20,7 +20,7 @@
 #include "sem.h"
 
 GSem*
-g_sem_new ()
+g_sem_new (void)
 {
     GSem *sem;
     sem = g_new (GSem, 1);

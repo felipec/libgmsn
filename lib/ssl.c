@@ -20,7 +20,7 @@
 #include "ssl.h"
 
 gboolean
-msn_ssl_init ()
+msn_ssl_init (void)
 {
     char seed_data[1024];
     FILE *ram_dev;
@@ -39,7 +39,7 @@ msn_ssl_init ()
 }
 
 void
-msn_ssl_deinit ()
+msn_ssl_deinit (void)
 {
     RAND_cleanup ();
     CONF_modules_unload (1);
@@ -50,7 +50,7 @@ msn_ssl_deinit ()
 }
 
 MsnSsl *
-msn_ssl_new ()
+msn_ssl_new (void)
 {
     MsnSsl *ssl;
     ssl = g_new0 (MsnSsl, 1);
@@ -77,7 +77,7 @@ msn_ssl_new ()
 }
 
 void
-msn_ssl_connect (MsnSsl *ssl, int fd)
+msn_ssl_connect (MsnSsl *ssl, gint fd)
 {
     int ret;
 
@@ -115,8 +115,8 @@ msn_ssl_free (MsnSsl *ssl)
 
 size_t
 msn_ssl_read (MsnSsl *ssl,
-              void *data,
-              size_t len)
+              gpointer data,
+              gsize len)
 {
     int s;
 
@@ -127,8 +127,8 @@ msn_ssl_read (MsnSsl *ssl,
 
 size_t
 msn_ssl_write (MsnSsl *ssl,
-               const void *data,
-               size_t len)
+               const gpointer data,
+               gsize len)
 {
     int s;
 

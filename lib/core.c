@@ -39,7 +39,7 @@ gpointer core_thread (gpointer data);
 #include "ssl.h"
 
 MsnCore *
-msn_core_new ()
+msn_core_new (void)
 {
     MsnCore *core;
 

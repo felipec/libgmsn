@@ -87,7 +87,7 @@ struct ConnObjectClass
 #define CONN_IS_OBJECT_CLASS(c) (G_TYPE_CHECK_CLASS_TYPE ((c), CONN_OBJECT_TYPE))
 #define CONN_OBJECT_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), CONN_OBJECT_TYPE, ConnObjectClass))
 
-GType conn_object_get_type ();
+GType conn_object_get_type (void);
 ConnObject *conn_object_new (MsnCore *core, gchar *name, ConnObjectType type);
 void conn_object_free (ConnObject *conn);
 void conn_object_connect (ConnObject *conn, gchar *hostname, gint port);

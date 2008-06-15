@@ -55,7 +55,7 @@ struct ConnEndObjectClass
 #define CONN_IS_END_OBJECT_CLASS(c) (G_TYPE_CHECK_CLASS_TYPE ((c), CONN_END_OBJECT_TYPE))
 #define CONN_END_OBJECT_GET_CLASS(obj) (G_TYPE_INSTANCE_GET_CLASS ((obj), CONN_END_OBJECT_TYPE, ConnEndObjectClass))
 
-GType conn_end_object_get_type ();
+GType conn_end_object_get_type (void);
 ConnEndObject *conn_end_object_new (ConnObject *conn_end);
 void conn_end_object_free (ConnEndObject *conn_end);
 void conn_end_object_connect (ConnEndObject *conn_end);

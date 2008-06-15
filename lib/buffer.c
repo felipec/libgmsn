@@ -20,7 +20,7 @@
 #include "buffer.h"
 
 MsnBuffer *
-msn_buffer_new ()
+msn_buffer_new (void)
 {
     MsnBuffer *buffer;
     buffer = g_new (MsnBuffer, 1);

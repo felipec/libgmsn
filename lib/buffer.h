@@ -34,7 +34,7 @@ struct MsnBuffer
     guint filled;
 };
 
-MsnBuffer *msn_buffer_new ();
+MsnBuffer *msn_buffer_new (void);
 MsnBuffer *msn_buffer_new_and_alloc (guint size);
 void msn_buffer_free (MsnBuffer *);
 void msn_buffer_resize (MsnBuffer *buffer, guint new_size);
