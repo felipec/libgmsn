@@ -28,10 +28,10 @@ typedef struct MsnBuffer MsnBuffer;
 
 struct MsnBuffer
 {
-	gchar *data;
-	gchar *alloc_data;
-	guint size;
-	guint filled;
+    gchar *data;
+    gchar *alloc_data;
+    guint size;
+    guint filled;
 };
 
 MsnBuffer *msn_buffer_new ();

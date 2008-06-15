@@ -22,53 +22,53 @@
 MsnBuffer *
 msn_buffer_new ()
 {
-	MsnBuffer *buffer;
-	buffer = g_new (MsnBuffer, 1);
-	buffer->data = NULL;
-	buffer->alloc_data = NULL;
-	buffer->size = 0;
-	buffer->filled = 0;
-	return buffer;
+    MsnBuffer *buffer;
+    buffer = g_new (MsnBuffer, 1);
+    buffer->data = NULL;
+    buffer->alloc_data = NULL;
+    buffer->size = 0;
+    buffer->filled = 0;
+    return buffer;
 }
 
 MsnBuffer *
 msn_buffer_new_and_alloc (guint size)
 {
-	MsnBuffer *buffer;
+    MsnBuffer *buffer;
 
-	if (size <= 0)
-		size = MSN_BUF_SIZE;
+    if (size <= 0)
+        size = MSN_BUF_SIZE;
 
-	buffer = g_new (MsnBuffer, 1);
-	buffer->data = buffer->alloc_data = g_malloc (size);
-	buffer->size = size;
-	buffer->filled = 0;
-	return buffer;
+    buffer = g_new (MsnBuffer, 1);
+    buffer->data = buffer->alloc_data = g_malloc (size);
+    buffer->size = size;
+    buffer->filled = 0;
+    return buffer;
 }
 
 void
 msn_buffer_free (MsnBuffer *buffer)
 {
-	if (buffer == NULL)
-		return;
+    if (buffer == NULL)
+        return;
 
-	g_free (buffer->alloc_data);
-	g_free (buffer);
+    g_free (buffer->alloc_data);
+    g_free (buffer);
 }
 
 void
 msn_buffer_resize (MsnBuffer *buffer, guint new_size)
 {
-	new_size = ((new_size / MSN_BUF_SIZE) + 1) * MSN_BUF_SIZE;
-	buffer->data = buffer->alloc_data = g_realloc (buffer->data, new_size);
-	buffer->size = new_size;
+    new_size = ((new_size / MSN_BUF_SIZE) + 1) * MSN_BUF_SIZE;
+    buffer->data = buffer->alloc_data = g_realloc (buffer->data, new_size);
+    buffer->size = new_size;
 }
 
 void
 msn_buffer_prepare (MsnBuffer *buffer, guint extra_size)
 {
-	if (buffer->size - buffer->filled < extra_size)
-	{
-		msn_buffer_resize (buffer, buffer->filled + extra_size);
-	}
+    if (buffer->size - buffer->filled < extra_size)
+    {
+        msn_buffer_resize (buffer, buffer->filled + extra_size);
+    }
 }

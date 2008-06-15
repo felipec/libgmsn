@@ -27,12 +27,12 @@ typedef struct CsObjectClass CsObjectClass;
 
 struct CsObject
 {
-	ConnObject parent_obj;
+    ConnObject parent_obj;
 };
 
 struct CsObjectClass
 {
-	ConnObjectClass parent_class;
+    ConnObjectClass parent_class;
 };
 
 #define CS_OBJECT_TYPE (cs_object_get_type ())

@@ -26,9 +26,9 @@ typedef struct GSem GSem;
 
 struct GSem
 {
-	GMutex *mutex;
-	GCond *cond;
-	gint count;
+    GMutex *mutex;
+    GCond *cond;
+    gint count;
 };
 
 GSem* g_sem_new ();

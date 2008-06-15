@@ -31,21 +31,21 @@ typedef struct ConnEndObjectClass ConnEndObjectClass;
 
 struct ConnEndObject
 {
-	GObject parent;
-	gboolean dispose_has_run;
+    GObject parent;
+    gboolean dispose_has_run;
 
-	ConnObject *conn;
+    ConnObject *conn;
 };
 
 struct ConnEndObjectClass
 {
-	GObjectClass parent_class;
+    GObjectClass parent_class;
 
-	void (*connect) (ConnEndObject *end);
-	void (*close) (ConnEndObject *end);
-	void (*free) (ConnEndObject *end);
-	gint (*read) (ConnEndObject *end, gchar *data, guint size);
-	gint (*write) (ConnEndObject *end, gchar *data, guint size);
+    void (*connect) (ConnEndObject *end);
+    void (*close) (ConnEndObject *end);
+    void (*free) (ConnEndObject *end);
+    gint (*read) (ConnEndObject *end, gchar *data, guint size);
+    gint (*write) (ConnEndObject *end, gchar *data, guint size);
 };
 
 #define CONN_END_OBJECT_TYPE (conn_end_object_get_type ())

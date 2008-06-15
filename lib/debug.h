@@ -26,9 +26,9 @@ typedef enum MsnType MsnType;
 
 enum MsnType
 {
-	MSN_TYPE_CONN,
-	MSN_TYPE_BUFFER,
-	MSN_TYPE_STRING
+    MSN_TYPE_CONN,
+    MSN_TYPE_BUFFER,
+    MSN_TYPE_STRING
 };
 
 void msn_print (const char *format, ...);

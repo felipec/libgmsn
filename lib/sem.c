@@ -22,38 +22,38 @@
 GSem*
 g_sem_new ()
 {
-	GSem *sem;
-	sem = g_new (GSem, 1);
-	sem->mutex = g_mutex_new ();
-	sem->cond = g_cond_new ();
-	sem->count = 0;
+    GSem *sem;
+    sem = g_new (GSem, 1);
+    sem->mutex = g_mutex_new ();
+    sem->cond = g_cond_new ();
+    sem->count = 0;
 
-	return sem;
+    return sem;
 }
 
 void
 g_sem_free (GSem *sem)
 {
-	g_mutex_free (sem->mutex);
-	g_cond_free (sem->cond);
+    g_mutex_free (sem->mutex);
+    g_cond_free (sem->cond);
 }
 
 void
 g_sem_up (GSem *sem)
 {
-	g_mutex_lock (sem->mutex);
-	sem->count++;
-	g_mutex_unlock (sem->mutex);
-	g_cond_signal (sem->cond);
+    g_mutex_lock (sem->mutex);
+    sem->count++;
+    g_mutex_unlock (sem->mutex);
+    g_cond_signal (sem->cond);
 }
 
 void
 g_sem_down (GSem* sem)
 {
-	g_mutex_lock (sem->mutex);
-	while (sem->count == 0)
-		g_cond_wait (sem->cond, sem->mutex);
-	sem->count--;
-	g_mutex_unlock (sem->mutex);
+    g_mutex_lock (sem->mutex);
+    while (sem->count == 0)
+        g_cond_wait (sem->cond, sem->mutex);
+    sem->count--;
+    g_mutex_unlock (sem->mutex);
 }
 

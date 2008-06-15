@@ -29,43 +29,43 @@ GMainLoop* loop;
 void
 hup_cb (MsnCore *core)
 {
-	g_main_loop_quit (loop);
+    g_main_loop_quit (loop);
 }
 
 gboolean
 idle (gpointer data)
 {
-	MsnCore *msn;
-	msn = (MsnCore *) data;
+    MsnCore *msn;
+    msn = (MsnCore *) data;
 
-	msn_core_start (msn);
+    msn_core_start (msn);
 
-	return FALSE;
+    return FALSE;
 }
 
 int
 main (int argc,
-	  char* argv[])
+      char* argv[])
 {
-	MsnCore *msn;
+    MsnCore *msn;
 
-	g_type_init ();
+    g_type_init ();
 
-	g_thread_init (NULL);
+    g_thread_init (NULL);
 
-	loop = g_main_loop_new (NULL, FALSE);
+    loop = g_main_loop_new (NULL, FALSE);
 
-	msn = msn_core_new ();
-	msn_core_init (msn);
-	msn->hup_cb = hup_cb;
-	msn->username = g_strdup (argv[1]);
-	msn->password = g_strdup (argv[2]);
+    msn = msn_core_new ();
+    msn_core_init (msn);
+    msn->hup_cb = hup_cb;
+    msn->username = g_strdup (argv[1]);
+    msn->password = g_strdup (argv[2]);
 
-	g_idle_add (idle, msn);
-	g_main_loop_run (loop);
+    g_idle_add (idle, msn);
+    g_main_loop_run (loop);
 
-	msn_core_deinit (msn);
-	msn_core_free (msn);
+    msn_core_deinit (msn);
+    msn_core_free (msn);
 
-	return 0;
+    return 0;
 }

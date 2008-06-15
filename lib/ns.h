@@ -29,16 +29,16 @@ typedef void (*MsnCmdHandler) (ConnObject *conn, MsnCmd *in);
 
 struct NsObject
 {
-	ConnObject parent_obj;
+    ConnObject parent_obj;
 
-	MsnCmd *cmd;
-	GHashTable *handlers;
-	gboolean first_write;
+    MsnCmd *cmd;
+    GHashTable *handlers;
+    gboolean first_write;
 };
 
 struct NsObjectClass
 {
-	ConnObjectClass parent_class;
+    ConnObjectClass parent_class;
 };
 
 #define NS_OBJECT_TYPE (ns_object_get_type ())

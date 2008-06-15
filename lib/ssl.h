@@ -31,8 +31,8 @@ typedef struct MsnSsl MsnSsl;
 
 struct MsnSsl
 {
-	SSL_CTX *ctx;
-	SSL *ssl;
+    SSL_CTX *ctx;
+    SSL *ssl;
 };
 
 gboolean msn_ssl_init ();

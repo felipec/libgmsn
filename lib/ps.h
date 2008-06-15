@@ -27,14 +27,14 @@ typedef struct PsObjectClass PsObjectClass;
 
 struct PsObject
 {
-	ConnObject parent_obj;
+    ConnObject parent_obj;
 
-	gchar *ticket;
+    gchar *ticket;
 };
 
 struct PsObjectClass
 {
-	ConnObjectClass parent_class;
+    ConnObjectClass parent_class;
 };
 
 #define PS_OBJECT_TYPE (ps_object_get_type ())

@@ -25,85 +25,85 @@
 void
 msn_print (const char *format, ...)
 {
-	va_list list;
-	const gchar *cur;
+    va_list list;
+    const gchar *cur;
 
-	va_start (list, format);
+    va_start (list, format);
 
-	for (cur = format; *cur; cur++)
-	{
-		if (*cur == '%')
-		{
-			cur++;
+    for (cur = format; *cur; cur++)
+    {
+        if (*cur == '%')
+        {
+            cur++;
 
-			if (*cur == 'b')
-			{
-				MsnBuffer *buffer;
-				gchar *tmp;
-				gchar *escaped;
+            if (*cur == 'b')
+            {
+                MsnBuffer *buffer;
+                gchar *tmp;
+                gchar *escaped;
 
-				buffer = va_arg (list, MsnBuffer *);
+                buffer = va_arg (list, MsnBuffer *);
 
-				tmp = g_strndup (buffer->data, buffer->filled);
-				escaped = g_strescape (tmp, NULL);
+                tmp = g_strndup (buffer->data, buffer->filled);
+                escaped = g_strescape (tmp, NULL);
 
-				g_print ("%d:{%s}", buffer->filled, escaped);
+                g_print ("%d:{%s}", buffer->filled, escaped);
 
-				g_free (escaped);
-				g_free (tmp);
-			}
+                g_free (escaped);
+                g_free (tmp);
+            }
 
-			if (*cur == 'v')
-			{
-				MsnType type;
+            if (*cur == 'v')
+            {
+                MsnType type;
 
-				type = va_arg (list, MsnType);
+                type = va_arg (list, MsnType);
 
-				switch (type)
-				{
-					case MSN_TYPE_CONN:
-						{
-							ConnObject *conn;
-							gchar *tmp;
+                switch (type)
+                {
+                    case MSN_TYPE_CONN:
+                        {
+                            ConnObject *conn;
+                            gchar *tmp;
 
-							conn = va_arg (list, ConnObject *);
+                            conn = va_arg (list, ConnObject *);
 
-							tmp = conn_object_to_string (conn);
+                            tmp = conn_object_to_string (conn);
 
-							g_print (tmp);
+                            g_print (tmp);
 
-							g_free (tmp);
-							break;
-						}
-					case MSN_TYPE_STRING:
-						{
-							gchar *str;
-							gchar *tmp;
-							gchar *escaped;
-							guint size;
+                            g_free (tmp);
+                            break;
+                        }
+                    case MSN_TYPE_STRING:
+                        {
+                            gchar *str;
+                            gchar *tmp;
+                            gchar *escaped;
+                            guint size;
 
-							str = va_arg (list, gchar *);
-							size = va_arg (list, guint);
+                            str = va_arg (list, gchar *);
+                            size = va_arg (list, guint);
 
-							tmp = g_strndup (str, size);
-							escaped = g_strescape (tmp, NULL);
+                            tmp = g_strndup (str, size);
+                            escaped = g_strescape (tmp, NULL);
 
-							g_print (escaped);
+                            g_print (escaped);
 
-							g_free (escaped);
-							g_free (tmp);
-							break;
-						}
-					default:
-						break;
-				}
-			}
-		}
-		else
-		{
-			g_print ("%c", *cur);
-		}
-	}
+                            g_free (escaped);
+                            g_free (tmp);
+                            break;
+                        }
+                    default:
+                        break;
+                }
+            }
+        }
+        else
+        {
+            g_print ("%c", *cur);
+        }
+    }
 
-	va_end (list);
+    va_end (list);
 }

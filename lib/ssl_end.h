@@ -32,15 +32,15 @@ typedef struct SslEndObjectClass SslEndObjectClass;
 
 struct SslEndObject
 {
-	ConnEndObject parent;
-	gboolean dispose_has_run;
+    ConnEndObject parent;
+    gboolean dispose_has_run;
 
-	MsnSsl *ssl;
+    MsnSsl *ssl;
 };
 
 struct SslEndObjectClass
 {
-	ConnEndObjectClass parent_class;
+    ConnEndObjectClass parent_class;
 };
 
 #define SSL_END_OBJECT_TYPE (ssl_end_object_get_type ())

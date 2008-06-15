@@ -28,13 +28,13 @@ typedef struct MsnCmd MsnCmd;
 
 struct MsnCmd
 {
-	gchar *id;
-	gint trid;
-	gchar *args;
-	gchar *argv[100];
+    gchar *id;
+    gint trid;
+    gchar *args;
+    gchar *argv[100];
 
-	gchar *str;
-	gchar *buffer_cur;
+    gchar *str;
+    gchar *buffer_cur;
 };
 
 MsnCmd *msn_cmd_new ();

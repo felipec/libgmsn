@@ -39,45 +39,45 @@ typedef struct ConnObjectClass ConnObjectClass;
 
 enum ConnObjectType
 {
-	MSN_CONN_NS,
-	MSN_CONN_PASSPORT,
-	MSN_CONN_CS
+    MSN_CONN_NS,
+    MSN_CONN_PASSPORT,
+    MSN_CONN_CS
 };
 
 struct ConnObject
 {
-	GObject parent;
-	MsnCore *core;
-	gboolean dispose_has_run;
-	ConnEndObject *end;
+    GObject parent;
+    MsnCore *core;
+    gboolean dispose_has_run;
+    ConnEndObject *end;
 
-	ConnObjectType type;
+    ConnObjectType type;
 
-	gchar *name;
-	gchar *host;
-	gint port;
-	int fd;
+    gchar *name;
+    gchar *host;
+    gint port;
+    int fd;
 
-	void (*error_cb) (ConnObject *conn);
+    void (*error_cb) (ConnObject *conn);
 
-	MsnBuffer *read_buffer;
-	MsnBuffer *buffer;
-	MsnBuffer *payload;
-	void (*payload_cb) (ConnObject *conn, MsnBuffer *payload);
-	gboolean parsed;
-	guint parse_pos;
-	guint last_parse_pos;
+    MsnBuffer *read_buffer;
+    MsnBuffer *buffer;
+    MsnBuffer *payload;
+    void (*payload_cb) (ConnObject *conn, MsnBuffer *payload);
+    gboolean parsed;
+    guint parse_pos;
+    guint last_parse_pos;
 };
 
 struct ConnObjectClass
 {
-	GObjectClass parent_class;
+    GObjectClass parent_class;
 
-	void (*read) (ConnObject *conn);
-	void (*parse) (ConnObject *conn);
-	void (*write) (ConnObject *conn);
-	void (*error) (ConnObject *conn);
-	void (*connect) (ConnObject *conn);
+    void (*read) (ConnObject *conn);
+    void (*parse) (ConnObject *conn);
+    void (*write) (ConnObject *conn);
+    void (*error) (ConnObject *conn);
+    void (*connect) (ConnObject *conn);
 };
 
 #define CONN_OBJECT_TYPE (conn_object_get_type ())

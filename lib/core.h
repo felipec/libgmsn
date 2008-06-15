@@ -28,19 +28,19 @@ typedef void (*MsnHupCb) (MsnCore *core);
 
 struct MsnCore
 {
-	ConnObject *ns;
-	ConnObject *cs;
-	ConnObject *ps;
-	GKeyFile *config;
+    ConnObject *ns;
+    ConnObject *cs;
+    ConnObject *ps;
+    GKeyFile *config;
 
-	gchar *username;
-	gchar *password;
+    gchar *username;
+    gchar *password;
 
-	gchar *cached_ns;
-	gchar *config_file;
-	gchar *cookie;
+    gchar *cached_ns;
+    gchar *config_file;
+    gchar *cookie;
 
-	MsnHupCb hup_cb;
+    MsnHupCb hup_cb;
 };
 
 MsnCore *msn_core_new ();
