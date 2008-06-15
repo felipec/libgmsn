@@ -17,8 +17,8 @@
  *
  */
 
-#ifndef __MSN_BUFFER_H__
-#define __MSN_BUFFER_H__
+#ifndef MSN_BUFFER_H
+#define MSN_BUFFER_H
 
 #include <glib.h>
 
@@ -41,4 +41,4 @@ void msn_buffer_resize (MsnBuffer *buffer, guint new_size);
 gchar *msn_buffer_to_string (MsnBuffer *buffer);
 void msn_buffer_prepare (MsnBuffer *buffer, guint extra_size);
 
-#endif /* __MSN_BUFFER_H__ */
+#endif /* MSN_BUFFER_H */

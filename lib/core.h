@@ -17,8 +17,8 @@
  *
  */
 
-#ifndef __MSN_CORE_H__
-#define __MSN_CORE_H__
+#ifndef MSN_CORE_H
+#define MSN_CORE_H
 
 typedef struct MsnCore MsnCore;
 
@@ -54,4 +54,4 @@ void msn_core_got_ticket (MsnCore *core, gchar *ticket);
 void msn_core_get_list (MsnCore *core);
 void msn_core_save_conf (MsnCore *core);
 
-#endif /* __MSN_CORE_H__ */
+#endif /* MSN_CORE_H */

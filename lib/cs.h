@@ -17,8 +17,8 @@
  *
  */
 
-#ifndef __MSN_CS_H__
-#define __MSN_CS_H__
+#ifndef MSN_CS_H
+#define MSN_CS_H
 
 typedef struct CsObject CsObject;
 typedef struct CsObjectClass CsObjectClass;
@@ -47,4 +47,4 @@ void cs_object_free (CsObject *ns);
 
 void cs_object_deinit ();
 
-#endif /* __MSN_CS_H__ */
+#endif /* MSN_CS_H */

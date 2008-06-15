@@ -17,8 +17,8 @@
  *
  */
 
-#ifndef __MSN_SSL_H__
-#define __MSN_SSL_H__
+#ifndef MSN_SSL_H
+#define MSN_SSL_H
 
 #include <glib.h>
 
@@ -43,4 +43,4 @@ void msn_ssl_free (MsnSsl *ssl);
 size_t msn_ssl_read (MsnSsl *ssl, void *data, size_t len);
 size_t msn_ssl_write (MsnSsl *ssl, const void *data, size_t len);
 
-#endif /* __MSN_SSL_H__ */
+#endif /* MSN_SSL_H */

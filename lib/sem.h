@@ -17,8 +17,8 @@
  *
  */
 
-#ifndef __MSN_SEM_H__
-#define __MSN_SEM_H__
+#ifndef MSN_SEM_H
+#define MSN_SEM_H
 
 typedef struct GSem GSem;
 
@@ -36,4 +36,4 @@ void g_sem_free (GSem *sem);
 void g_sem_up (GSem *sem);
 void g_sem_down (GSem* sem);
 
-#endif /* __MSN_SEM_H__ */
+#endif /* MSN_SEM_H */

@@ -17,8 +17,8 @@
  *
  */
 
-#ifndef __MSN_CONN_END_H__
-#define __MSN_CONN_END_H__
+#ifndef MSN_CONN_END_H
+#define MSN_CONN_END_H
 
 #include <glib.h>
 
@@ -63,4 +63,4 @@ void conn_end_object_close (ConnEndObject *conn_end);
 gint conn_end_object_read (ConnEndObject *conn_end, gchar *data, guint size);
 gint conn_end_object_write (ConnEndObject *conn_end, gchar *data, guint size);
 
-#endif /* __MSN_CONN_END_H__ */
+#endif /* MSN_CONN_END_H */

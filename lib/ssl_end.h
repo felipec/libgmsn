@@ -17,8 +17,8 @@
  *
  */
 
-#ifndef __MSN_SSL_END_H__
-#define __MSN_SSL_END_H__
+#ifndef MSN_SSL_END_H
+#define MSN_SSL_END_H
 
 #include <glib.h>
 
@@ -53,4 +53,4 @@ struct SslEndObjectClass
 SslEndObject *ssl_end_object_new (ConnObject *ssl_end);
 void ssl_end_object_free (SslEndObject *ssl_end);
 
-#endif /* __MSN_SSL_END_H__ */
+#endif /* MSN_SSL_END_H */

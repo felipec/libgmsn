@@ -17,8 +17,8 @@
  *
  */
 
-#ifndef __MSN_CONN_H__
-#define __MSN_CONN_H__
+#ifndef MSN_CONN_H
+#define MSN_CONN_H
 
 #include <glib.h>
 
@@ -97,4 +97,4 @@ void conn_object_handle (ConnObject *conn, MsnCmd *cmd);
 gchar *conn_object_to_string (ConnObject *conn);
 void conn_object_poll (ConnObject *conn);
 
-#endif /* __MSN_CONN_H__ */
+#endif /* MSN_CONN_H */

@@ -17,8 +17,8 @@
  *
  */
 
-#ifndef __MSN_UTIL_H__
-#define __MSN_UTIL_H__
+#ifndef MSN_UTIL_H
+#define MSN_UTIL_H
 
 #include <glib.h>
 
@@ -27,4 +27,4 @@ gchar *string_replace (const gchar *orig, gchar from, gchar to);
 gchar *xml_encode (gchar *orig);
 gchar *xml_decode (gchar *orig);
 
-#endif /* __MSN_UTIL_H__ */
+#endif /* MSN_UTIL_H */

@@ -17,8 +17,8 @@
  *
  */
 
-#ifndef __MSN_PASSPORT_H__
-#define __MSN_PASSPORT_H__
+#ifndef MSN_PASSPORT_H
+#define MSN_PASSPORT_H
 
 typedef struct PsObject PsObject;
 typedef struct PsObjectClass PsObjectClass;
@@ -48,4 +48,4 @@ GType ps_object_get_type ();
 PsObject *ps_object_new (MsnCore *core);
 void ps_object_free (PsObject *ns);
 
-#endif /* __MSN_PASSPORT_H__ */
+#endif /* MSN_PASSPORT_H */

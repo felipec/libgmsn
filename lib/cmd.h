@@ -17,8 +17,8 @@
  *
  */
 
-#ifndef __MSN_CMD_H_
-#define __MSN_CMD_H_
+#ifndef MSN_CMD_H
+#define MSN_CMD_H
 
 #include <glib.h>
 
@@ -44,4 +44,4 @@ MsnCmd *msn_cmd_from_string (gchar *string);
 void msn_cmd_free (MsnCmd *cmd);
 gchar *msn_cmd_get_param (MsnCmd *cmd, gint num);
 
-#endif /* __MSN_CMD_H_ */
+#endif /* MSN_CMD_H */

@@ -17,8 +17,8 @@
  *
  */
 
-#ifndef __MSN_NS_H__
-#define __MSN_NS_H__
+#ifndef MSN_NS_H
+#define MSN_NS_H
 
 typedef struct NsObject NsObject;
 typedef struct NsObjectClass NsObjectClass;
@@ -51,4 +51,4 @@ struct NsObjectClass
 NsObject *ns_object_new (MsnCore *core);
 void ns_object_free (NsObject *ns);
 
-#endif /* __MSN_NS_H__ */
+#endif /* MSN_NS_H */

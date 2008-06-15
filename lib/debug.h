@@ -17,8 +17,8 @@
  *
  */
 
-#ifndef __MSN_DEBUG_H__
-#define __MSN_DEBUG_H__
+#ifndef MSN_DEBUG_H
+#define MSN_DEBUG_H
 
 #include <glib.h>
 
@@ -33,4 +33,4 @@ enum MsnType
 
 void msn_print (const char *format, ...);
 
-#endif /* __MSN_DEBUG_H__ */
+#endif /* MSN_DEBUG_H */
