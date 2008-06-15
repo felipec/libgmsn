@@ -19,6 +19,7 @@
 
 #include "conn.h"
 
+#define __USE_GNU
 #include <netdb.h>
 #include <string.h>
 
